@@ -52,7 +52,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         run: npm ci
 
-      - name: 🚀 Building Poku
+      - name: 🚀 Building Plugin
         if: ${{ steps.release.outputs.releases_created }}
         run: npm run build
 
