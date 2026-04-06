@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.nycrc.json
+.npmrc
+
+/lib/
+/coverage/
+/test/__fixtures__/.temp/
+/test/__fixtures__/e2e/coverage/
+
+node_modules/

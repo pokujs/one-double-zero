@@ -1,0 +1,13 @@
+const { coverage } = require('../../../../lib/index.js');
+
+/** @type {import('poku').PokuConfig} */
+module.exports = {
+  include: ['test/'],
+  plugins: [
+    coverage({
+      reporters: ['text'],
+      sources: ['**/src/**'],
+      requireFlag: true,
+    }),
+  ],
+};
