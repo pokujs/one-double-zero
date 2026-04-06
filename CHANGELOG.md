@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2026-04-06)
+
+
+### Features
+
+* introduce @pokujs/one-double-zero plugin ([f751892](https://github.com/pokujs/one-double-zero/commit/f751892059009011d308428b9ca3d998afdba94f))
+
 ## [1.0.0](https://github.com/pokujs/one-double-zero/compare/v0.1.1...v1.0.0) (2026-04-06)
 
 
