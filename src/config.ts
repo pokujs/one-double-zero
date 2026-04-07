@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { JSONC } from 'jsonc.min';
 import { parse as tomlParse } from 'toml.min';
-import YAML from 'yaml';
+import { parse as yamlPaser } from 'yaml.min';
 
 const scriptExtensions = new Set([
   '.js',
@@ -32,7 +32,7 @@ const getExtension = (filePath: string): string => {
 
 const parseConfig = (content: string, filePath: string): CoverageOptions => {
   if (isToml(filePath)) return tomlParse(content) as CoverageOptions;
-  if (isYaml(filePath)) return YAML.parse(content) as CoverageOptions;
+  if (isYaml(filePath)) return yamlPaser(content) as CoverageOptions;
   return JSONC.parse(content) as CoverageOptions;
 };
 
