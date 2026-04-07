@@ -39,8 +39,8 @@ const parseConfig = (content: string, filePath: string): CoverageOptions => {
 export const loadConfig = (
   cwd: string,
   customPath?: string | false
-): CoverageOptions | undefined => {
-  if (customPath === false) return;
+): CoverageOptions => {
+  if (customPath === false) return Object.create(null);
 
   const expectedFiles = customPath
     ? [customPath]
@@ -65,4 +65,6 @@ export const loadConfig = (
       return parseConfig(content, file);
     } catch {}
   }
+
+  return Object.create(null);
 };
