@@ -125,24 +125,22 @@ export const coverage = (
 
     setup(context) {
       if (options.requireFlag && !process.argv.includes('--coverage')) return;
-      enabled = true;
-
-      cwd = context.cwd;
-
       if (context.runtime !== 'node')
         console.warn(
           `[@pokujs/one-double-zero] V8 coverage is only supported on Node.js (current runtime: ${context.runtime}). Coverage data may not be collected.`
         );
+
+      enabled = true;
+      cwd = context.cwd;
 
       const cliConfig = process.argv
         .find((arg) => arg.startsWith('--coverageConfig'))
         ?.split('=')[1];
 
       const resolvedConfig = cliConfig ?? options.config;
-
       const fileConfig = loadConfig(context.cwd, resolvedConfig);
-      if (fileConfig) options = { ...fileConfig, ...options };
 
+      options = { ...fileConfig, ...options };
       originalEnv = process.env.NODE_V8_COVERAGE;
 
       tempDir = options.coverageDirectory

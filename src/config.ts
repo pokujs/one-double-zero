@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { JSONC } from 'jsonc.min';
 import { parse as tomlParse } from 'toml.min';
-import YAML from 'yaml';
+import { parse as yamlParse } from 'yaml.min';
 
 const scriptExtensions = new Set([
   '.js',
@@ -31,16 +31,16 @@ const getExtension = (filePath: string): string => {
 };
 
 const parseConfig = (content: string, filePath: string): CoverageOptions => {
-  if (isToml(filePath)) return tomlParse(content) as CoverageOptions;
-  if (isYaml(filePath)) return YAML.parse(content) as CoverageOptions;
-  return JSONC.parse(content) as CoverageOptions;
+  if (isToml(filePath)) return tomlParse<CoverageOptions>(content);
+  if (isYaml(filePath)) return yamlParse<CoverageOptions>(content);
+  return JSONC.parse<CoverageOptions>(content);
 };
 
 export const loadConfig = (
   cwd: string,
   customPath?: string | false
-): CoverageOptions | undefined => {
-  if (customPath === false) return;
+): CoverageOptions => {
+  if (customPath === false) return Object.create(null);
 
   const expectedFiles = customPath
     ? [customPath]
@@ -65,4 +65,6 @@ export const loadConfig = (
       return parseConfig(content, file);
     } catch {}
   }
+
+  return Object.create(null);
 };

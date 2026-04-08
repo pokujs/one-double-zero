@@ -42,7 +42,7 @@
     "jsonc.min": "^1.1.2",
     "one-double-zero": "^1.1.1",
     "toml.min": "^0.1.3",
-    "yaml": "^2.8.3"
+    "yaml.min": "^1.0.0"
   },
   "peerDependencies": {
     "poku": "^4.1.0"
