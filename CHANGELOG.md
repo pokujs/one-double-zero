@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/pokujs/one-double-zero/compare/v1.0.0...v1.0.1) (2026-04-08)
+
+
+### Performance Improvements
+
+* replace `yaml` with `yaml.min` ([#2](https://github.com/pokujs/one-double-zero/issues/2)) ([2e3c762](https://github.com/pokujs/one-double-zero/commit/2e3c762b7d8eda4607eceb35b5759b029ac18f84))
+
 ## 1.0.0 (2026-04-06)
 
 
